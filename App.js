@@ -30,15 +30,11 @@ const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark" />
+      <SafeAreaView>
+        <TopHeader></TopHeader>
+        <SingleExercise></SingleExercise>
+      </SafeAreaView>
 
-        <ScrollView contentInsetAdjustmentBehavior="automatic">
-
-
-          <TopHeader></TopHeader>
-
-          <SingleExercise></SingleExercise>
-
-        </ScrollView>
 
     </>
   );
