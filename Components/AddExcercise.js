@@ -16,7 +16,7 @@ function AddExcercise(props) {
         <TouchableHighlight>
             <View style={styles.wrap}>
 
-                <Modal visible={true}>
+                <Modal visible={props.modalState}>
                     <View style={styles.modalWrapper}>
                         <Text style={styles.modalText}>Dodaj ćwiczenie</Text>
                         <TextInput placeholder="Nazwa ćwiczenia" style={styles.textInput}></TextInput>

@@ -16,24 +16,24 @@ import TopHeader from './Components/TopHeader';
 import SingleExercise from './Components/SingleExercise';
 import { v4 as uuidv4 } from 'uuid';
 import AddExcercise from './Components/AddExcercise';
+import MainScreen from './Components/MainScreen';
 
 
 
 const App: () => React$Node = () => {
-  const [state, setState] = useState([
-    { id: uuidv4(), name: "Podciaganie nadchwytem" },
-    { id: uuidv4(), name: "Back leaver" }
-]);
+  const [state, setState] = useState(false);          {/*Modal*/}
 
+  const showModal = () => {
+    setState(true);
+  };
+  const hideModal = () => {
+    setState(false);
+  };
   return (
     <>
       <StatusBar barStyle="dark" />
       <SafeAreaView> 
-        <TopHeader></TopHeader>
-        <FlatList data={state} renderItem={({ item }) => <SingleExercise item={item}></SingleExercise>} keyExtractor={item => item.id}/>
-        <AddExcercise></AddExcercise>
-
-
+        <MainScreen modalState={state} showModal={showModal} hideModal={hideModal}></MainScreen>
       </SafeAreaView>
 
 
