@@ -6,33 +6,34 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React,{ useState } from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
   StatusBar,
+  FlatList
 } from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import TopHeader from './Components/TopHeader';
 import SingleExercise from './Components/SingleExercise';
+import { v4 as uuidv4 } from 'uuid';
+import AddExcercise from './Components/AddExcercise';
+
+
 
 const App: () => React$Node = () => {
+  const [state, setState] = useState([
+    { id: uuidv4(), name: "Podciaganie nadchwytem" },
+    { id: uuidv4(), name: "Back leaver" }
+]);
+
   return (
     <>
       <StatusBar barStyle="dark" />
-      <SafeAreaView>
+      <SafeAreaView> 
         <TopHeader></TopHeader>
-        <SingleExercise></SingleExercise>
+        <FlatList data={state} renderItem={({ item }) => <SingleExercise item={item}></SingleExercise>} keyExtractor={item => item.id}/>
+        <AddExcercise></AddExcercise>
+
+
       </SafeAreaView>
 
 

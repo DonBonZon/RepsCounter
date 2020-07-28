@@ -10,9 +10,9 @@ function Reps(props) {
     return (
     
             <View style={styles.inputs}>
-                 <Icon.Button name="minus-square" size={55} color="black"  backgroundColor="#ffffff"  onPress={(text) => props.buttonMinusPress(props.item.id)}/>
+                 <Icon.Button underlayColor={''} name="minus-square" size={55} color="black"  backgroundColor="#ffffff"  onPress={(text) => props.buttonMinusPress(props.item.id)}/>
                 <TextInput value={props.item.reps.toString()} style={styles.textInput} keyboardType='number-pad' onChangeText={(text) => props.onChangeText(text,props.item.id)}/>
-                <Icon.Button name="plus-square" size={55} color="black"  backgroundColor="#ffffff"  onPress={(text) => props.buttonPlusPress(props.item.id)}/>
+                <Icon.Button underlayColor={''} name="plus-square" size={55} color="black"  backgroundColor="#ffffff"  onPress={(text) => props.buttonPlusPress(props.item.id)}/>
             </View>
     );
 }

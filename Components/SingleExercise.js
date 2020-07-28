@@ -4,6 +4,7 @@ import {
     Text,
     StyleSheet,
     FlatList,
+    Keyboard
 } from 'react-native';
 import 'react-native-get-random-values'
 import { v4 as uuidv4 } from 'uuid';
@@ -31,6 +32,7 @@ function SingleExercise(props) {
 
     const onChangeText = (text, id) => {
         setState(prevItems => {
+            setTimeout(()=>{Keyboard.dismiss()},600);
             return prevItems.map(item => {
                 return {
                     id: item.id,
@@ -40,13 +42,9 @@ function SingleExercise(props) {
         });
     };
 
-    function validateInput(text) {
-
-    }
-
     return (
         <View>
-            <Text style={styles.exerciseName}>Podciąganie nadchwytem</Text>
+            <Text style={styles.exerciseName}>{props.item.name}</Text>
             <FlatList
                 data={state}
                 renderItem={({ item }) => <Reps item={item} buttonMinusPress={buttonMinusPress} buttonPlusPress={buttonPlusPress} onChangeText={onChangeText}></Reps>}
