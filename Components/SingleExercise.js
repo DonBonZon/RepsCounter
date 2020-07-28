@@ -15,7 +15,7 @@ function SingleExercise(props) {
         { id: uuidv4(), reps: 0 }
     ]);
 
-    const buttonPlusPress = id => {
+    const buttonPlusPress = () => {
         setState(prevItems => {
             prevItems.push({ id: uuidv4(), reps: 0 });
             return [...prevItems];
@@ -26,7 +26,7 @@ function SingleExercise(props) {
         setState(prevItems => {
             if (prevItems.length > 1) {
                 return prevItems.filter(item => item.id !== id);
-            } else return prevItems;
+            } else props.deleteExcercise(props.item.id);
         });
     };
 

@@ -18,11 +18,30 @@ function MainScreen(props) {
     { id: uuidv4(), name: "Back leaver" }
 ]);
 
+
+const deleteExcercise = id => {
+  setState(prevItems => {
+          return prevItems.filter(item => item.id !== id);
+  });
+};
+
+const addExcercise = (name) => {
+  if(name!==""){
+  setState(prevItems => {
+    prevItems.push({ id: uuidv4(), name: name });
+    return [...prevItems];
+});
+    props.hideModal();
+}
+};
+
+
+
   return (
     <View>
         <TopHeader></TopHeader>
-        <FlatList data={state} renderItem={({ item }) => <SingleExercise item={item}></SingleExercise>} keyExtractor={item => item.id}/>
-        <AddExcercise modalState={props.modalState}></AddExcercise>
+        <FlatList data={state} renderItem={({ item }) => <SingleExercise item={item} deleteExcercise={deleteExcercise} ></SingleExercise>} keyExtractor={item => item.id}/>
+        <AddExcercise modalState={props.modalState} showModal={props.showModal} hideModal={props.hideModal} addExcercise={addExcercise}></AddExcercise>
     </View>
   );
 };

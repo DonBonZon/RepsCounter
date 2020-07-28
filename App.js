@@ -10,7 +10,7 @@ import React,{ useState } from 'react';
 import {
   SafeAreaView,
   StatusBar,
-  FlatList
+  FlatList,
 } from 'react-native';
 import TopHeader from './Components/TopHeader';
 import SingleExercise from './Components/SingleExercise';
@@ -21,19 +21,20 @@ import MainScreen from './Components/MainScreen';
 
 
 const App: () => React$Node = () => {
-  const [state, setState] = useState(false);          {/*Modal*/}
-
+  const [state, setState] = useState(false);
   const showModal = () => {
     setState(true);
-  };
+  }
   const hideModal = () => {
     setState(false);
-  };
+  }
   return (
     <>
       <StatusBar barStyle="dark" />
-      <SafeAreaView> 
+      <SafeAreaView style={{backgroundColor: '#ffffff', flex: 1}}> 
+   
         <MainScreen modalState={state} showModal={showModal} hideModal={hideModal}></MainScreen>
+
       </SafeAreaView>
 
 

@@ -11,25 +11,26 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 function AddExcercise(props) {
+    let name ="";
     
     return (
-        <TouchableHighlight>
+        <TouchableHighlight underlayColor={''} onPress={props.showModal}>
             <View style={styles.wrap}>
 
                 <Modal visible={props.modalState}>
                     <View style={styles.modalWrapper}>
                         <Text style={styles.modalText}>Dodaj ćwiczenie</Text>
-                        <TextInput placeholder="Nazwa ćwiczenia" style={styles.textInput}></TextInput>
+                        <TextInput onChangeText={(value) => {name=value} } placeholder="Nazwa ćwiczenia" style={styles.textInput}></TextInput>
                         <View style={styles.modalButtonsHolder}>
-                            <TouchableOpacity style={styles.modalButtonCancel} ><Text style={styles.modalButtonText}>Anuluj</Text></TouchableOpacity>
-                            <TouchableOpacity style={styles.modalButtonAdd}><Text style={styles.modalButtonText}>Dodaj</Text></TouchableOpacity>
+                            <TouchableOpacity onPress={props.hideModal} style={styles.modalButtonCancel} ><Text style={styles.modalButtonText}>Anuluj</Text></TouchableOpacity>
+                            <TouchableOpacity onPress={()=>props.addExcercise(name)} style={styles.modalButtonAdd}><Text style={styles.modalButtonText}>Dodaj</Text></TouchableOpacity>
                         </View>
                     </View>
                 </Modal>
 
 
                 <Text style={styles.text}>Dodaj ćwiczenie</Text>
-                <Icon.Button underlayColor={''} name="plus-square" size={55} color="#753cda" backgroundColor="#ffffff" />
+                <Icon.Button onPress={props.showModal} underlayColor={''} name="plus-square" size={55} color="#753cda" backgroundColor="#ffffff" />
             </View>
         </TouchableHighlight>
     );
@@ -41,7 +42,8 @@ const styles = StyleSheet.create({
         marginRight: 'auto',
         marginTop: 5,
         alignItems: 'center',
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
+        flexDirection: "row"
     },
     text: {
         color: "#753cda",
