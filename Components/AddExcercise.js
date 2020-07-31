@@ -27,8 +27,6 @@ function AddExcercise(props) {
                         </View>
                     </View>
                 </Modal>
-
-
                 <Text style={styles.text}>Dodaj ćwiczenie</Text>
                 <Icon.Button onPress={props.showModal} underlayColor={''} name="plus-square" size={55} color="#753cda" backgroundColor="#ffffff" />
             </View>

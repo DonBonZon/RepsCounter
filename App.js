@@ -17,27 +17,14 @@ import SingleExercise from './Components/SingleExercise';
 import { v4 as uuidv4 } from 'uuid';
 import AddExcercise from './Components/AddExcercise';
 import MainScreen from './Components/MainScreen';
+import Routes from './Routes';
 
 
 
 const App: () => React$Node = () => {
-  const [state, setState] = useState(false);
-  const showModal = () => {
-    setState(true);
-  }
-  const hideModal = () => {
-    setState(false);
-  }
   return (
     <>
-      <StatusBar barStyle="dark" />
-      <SafeAreaView style={{backgroundColor: '#ffffff', flex: 1}}> 
-   
-        <MainScreen modalState={state} showModal={showModal} hideModal={hideModal}></MainScreen>
-
-      </SafeAreaView>
-
-
+     <Routes ></Routes>
     </>
   );
 };
