@@ -1,21 +1,22 @@
 import React,{ useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 //import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer'
+//import { createDrawerNavigator } from '@react-navigation/drawer'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MainScreen from './Components/MainScreen';
 import Reps from './Components/Reps';
 import Review from './Components/Review';
 
 
-const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
 export default Routes=()=>{
     return(
         <NavigationContainer>
-            <Drawer.Navigator screenOptions={{ headerShown: false }}>
-                <Drawer.Screen name="home" component={MainScreen}></Drawer.Screen>
-                <Drawer.Screen name="review" component={Review}></Drawer.Screen>
-            </Drawer.Navigator>
+            <Tab.Navigator screenOptions={{ headerShown: false }}>
+                <Tab.Screen name="home" component={MainScreen}></Tab.Screen>
+                <Tab.Screen name="review" component={Review}></Tab.Screen>
+            </Tab.Navigator>
         </NavigationContainer>
     )
 }

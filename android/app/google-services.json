@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "101438054943",
+    "firebase_url": "https://pierwszaapka-92c33.firebaseio.com",
+    "project_id": "pierwszaapka-92c33",
+    "storage_bucket": "pierwszaapka-92c33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101438054943:android:75f200065fc4bf8b206b2a",
+        "android_client_info": {
+          "package_name": "com.pierwszaapka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101438054943-in9r395j15tk801igg72vf3qlia4kvtp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfumK6g0AvSOA24zFtqnKy0Yad3RNKqlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101438054943-in9r395j15tk801igg72vf3qlia4kvtp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
