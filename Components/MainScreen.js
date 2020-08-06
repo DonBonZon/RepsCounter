@@ -4,7 +4,8 @@ import {
   SafeAreaView,
   StatusBar,
   FlatList,
-  View
+  View,
+  Keyboard
 } from 'react-native';
 import TopHeader from './TopHeader';
 import { v4 as uuidv4 } from 'uuid';
@@ -14,8 +15,7 @@ import SingleExercise from './SingleExercise';
 
 function MainScreen(props) {
   const [state, setState] = useState([
-    { id: uuidv4(), name: "Podciaganie nadchwytem" },
-    { id: uuidv4(), name: "Back leaver" }
+    { id: uuidv4(), name: "Podciaganie nadchwytem",reps:[0]},
   ]);
 
   const [modalState, setModal] = useState(false);
@@ -37,17 +37,53 @@ function MainScreen(props) {
   const addExcercise = (name) => {
     if (name !== "") {
       setState(prevItems => {
-        prevItems.push({ id: uuidv4(), name: name });
+        prevItems.push({ id: uuidv4(), name: name,reps:[0] });
         return [...prevItems];
       });
       hideModal();
     }
   };
 
+const buttonPlusPress = id => {
+    setState(prevItems => {
+        let idx = prevItems.findIndex((item)=>{return item.id === id});
+        prevItems[idx].reps.push(0);
+        return [...prevItems];
+    });
+};
+
+const buttonMinusPress = id => {
+    setState(prevItems => {
+      let idx = prevItems.findIndex((item)=>{return item.id === id});
+      prevItems[idx].reps.pop();
+      if(prevItems[idx].reps.length<1){
+        deleteExcercise(id);
+      }
+      return [...prevItems];
+    });
+};
+
+const onChangeText = (text, idx, parentId) => {
+    setState(prevItems => {
+        setTimeout(() => { Keyboard.dismiss() }, 600);
+        let parentIndex = prevItems.findIndex((item)=>{return item.id === parentId});
+        let newReps = prevItems[parentIndex].reps;
+        newReps[idx] = text.replace(/^0+/, '');
+        return prevItems.map(item => {
+            return {
+                id: item.id,
+                name: item.name,
+                reps: (item.id === parentIndex ? newReps : item.reps)
+            }
+        })
+    });
+};
+
+
   return (
     <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
       <TopHeader></TopHeader>
-      <FlatList data={state} renderItem={({ item }) => <SingleExercise item={item} deleteExcercise={deleteExcercise} ></SingleExercise>} keyExtractor={item => item.id} />
+      <FlatList data={state} renderItem={({ item }) => <SingleExercise item={item} deleteExcercise={deleteExcercise} buttonPlusPress={buttonPlusPress} buttonMinusPress={buttonMinusPress} onChangeText={onChangeText}></SingleExercise>} keyExtractor={item => item.id} />
       <AddExcercise modalState={modalState} showModal={showModal} hideModal={hideModal} addExcercise={addExcercise}></AddExcercise>
     </View>
   );

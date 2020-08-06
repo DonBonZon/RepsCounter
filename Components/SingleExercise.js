@@ -11,50 +11,17 @@ import { v4 as uuidv4 } from 'uuid';
 import Reps from './Reps';
 
 function SingleExercise(props) {
-    const [state, setState] = useState([
-        { id: uuidv4(), reps: 0 }
-    ]);
-
-    const buttonPlusPress = () => {
-        setState(prevItems => {
-            prevItems.push({ id: uuidv4(), reps: 0 });
-            return [...prevItems];
-        });
-    };
-
-    const buttonMinusPress = id => {
-        setState(prevItems => {
-            if (prevItems.length > 1) {
-                return prevItems.filter(item => item.id !== id);
-            } else props.deleteExcercise(props.item.id);
-        });
-    };
-
-    const onChangeText = (text, id) => {
-        setState(prevItems => {
-            setTimeout(()=>{Keyboard.dismiss()},600);
-            return prevItems.map(item => {
-                return {
-                    id: item.id,
-                    reps: (item.id === id ? text.replace(/^0+/, '') : item.reps)
-                }
-            })
-        });
-    };
-
     return (
         <View>
             <Text style={styles.exerciseName}>{props.item.name}</Text>
             <FlatList
-                data={state}
-                renderItem={({ item }) => <Reps item={item} buttonMinusPress={buttonMinusPress} buttonPlusPress={buttonPlusPress} onChangeText={onChangeText}></Reps>}
-                keyExtractor={item => item.id}
+                data={props.item.reps}
+                renderItem={({ item,index }) => <Reps item={item} buttonMinusPress={props.buttonMinusPress} buttonPlusPress={props.buttonPlusPress} onChangeText={props.onChangeText} parentId={props.item.id} index={index}></Reps>}
+                keyExtractor={(item, index) => index.toString()}
             />
         </View>
     );
 }
-
-
 
 const styles = StyleSheet.create({
     exerciseName: {
