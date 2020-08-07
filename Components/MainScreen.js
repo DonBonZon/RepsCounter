@@ -1,8 +1,6 @@
 
 import React, { useState } from 'react';
 import {
-  SafeAreaView,
-  StatusBar,
   FlatList,
   View,
   Keyboard
@@ -11,7 +9,7 @@ import TopHeader from './TopHeader';
 import { v4 as uuidv4 } from 'uuid';
 import AddExcercise from './AddExcercise';
 import SingleExercise from './SingleExercise';
-
+import firestore from '@react-native-firebase/firestore';
 
 function MainScreen(props) {
   const [state, setState] = useState([
@@ -79,10 +77,18 @@ const onChangeText = (text, idx, parentId) => {
     });
 };
 
+const saveSession = () => {
+  firestore().collection('reps').add({
+    Date: new Date(),
+    state
+  }).then(() => {
+    console.log('Added session to db successfully');
+  });
+}
 
   return (
     <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
-      <TopHeader></TopHeader>
+      <TopHeader saveSession={saveSession}></TopHeader>
       <FlatList data={state} renderItem={({ item }) => <SingleExercise item={item} deleteExcercise={deleteExcercise} buttonPlusPress={buttonPlusPress} buttonMinusPress={buttonMinusPress} onChangeText={onChangeText}></SingleExercise>} keyExtractor={item => item.id} />
       <AddExcercise modalState={modalState} showModal={showModal} hideModal={hideModal} addExcercise={addExcercise}></AddExcercise>
     </View>

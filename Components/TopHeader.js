@@ -6,11 +6,12 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 function TopHeader(props) {
   return (
     <View>
         <View style={styles.saveAreaWrapper}>
-          <TouchableOpacity onPress={()=>{console.log("tezd")}} style={{flexDirection:'row'}}><Icon.Button name="check" size={30} color="#753cda" backgroundColor="#ffffff" /><Text style={styles.saveText}>Save session</Text></TouchableOpacity>
+          <TouchableOpacity onPress={props.saveSession} style={{flexDirection:'row'}}><Icon.Button name="check" size={30} color="#753cda" backgroundColor="#ffffff" /><Text style={styles.saveText}>Save session</Text></TouchableOpacity>
         </View>
       <Text style={{ textAlign: 'center' }}>Tu kiedys bedzie jakis bardzo ladny baner hehe</Text>
     </View>
