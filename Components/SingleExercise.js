@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     View,
     Text,
     StyleSheet,
     FlatList,
 } from 'react-native';
-import 'react-native-get-random-values'
 import Reps from './Reps';
 
 

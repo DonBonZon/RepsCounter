@@ -1,5 +1,5 @@
 
-import React,{ useState } from 'react';
+import React from 'react';
 import {
   View,
   Text
@@ -9,8 +9,9 @@ import firestore from '@react-native-firebase/firestore';
 
 function Review() {
   getUserr =  async () => {
-    const dataa = await firestore().doc("reps/22zwlGmvoIHWlcrsBu3C").get();
+    const dataa = await firestore().doc("reps/jNE9zWZ9kZIeAFzDvmCn").get();
     console.log(dataa.data());
+    console.log(dataa.data().reps);
     }
 
  getUserr();
