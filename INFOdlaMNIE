@@ -1,2 +1,5 @@
-id leci po calej sesji
-https://stackoverflow.com/questions/22876978/loop-inside-react-jsx
+Do zrobenia:
+- malo eleganckie chyba jest to ze z czasem keyboard sie chowa
+-pozmieniac czcionki
+-zrobic aby walidowaly sie pola text inputow ( nie bylo kropek itp)
+-zrobic aby zatwierdzac text input enterem

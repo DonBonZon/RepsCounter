@@ -15,15 +15,24 @@ function Review() {
   const [reviewData, setReviewData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await firestore().collection("reps").get();
+    //const fetchData = async () => {
+    //  const data = await firestore().collection("reps").get();
+    //  const tmp = [];
+    //  data.docs.map(doc => {
+    //    tmp.push({ ...doc.data() });
+    //  })
+    //  setReviewData(arrayToSortedState(tmp));
+    //}
+    //fetchData();
+    const subscriber = firestore().collection("reps").onSnapshot((data) => {
       const tmp = [];
-      data.docs.map(doc => {
-        tmp.push({ ...doc.data() });
-      })
-      setReviewData(arrayToSortedState(tmp));
-    }
-    fetchData();
+       data.docs.map(doc => {
+         tmp.push({ ...doc.data() });
+       })
+       setReviewData(arrayToSortedState(tmp));
+    })
+
+
   }, []);
 
   const arrayToSortedState = (array) => {
