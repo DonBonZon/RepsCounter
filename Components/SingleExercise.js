@@ -20,7 +20,6 @@ function SingleExercise(props) {
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     exerciseName: {
         fontSize: 25,

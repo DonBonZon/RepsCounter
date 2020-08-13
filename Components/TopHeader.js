@@ -20,8 +20,6 @@ const styles = StyleSheet.create({
   saveAreaWrapper: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    
-
   },
   saveText: {
     fontSize: 15,

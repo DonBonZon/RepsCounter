@@ -18,6 +18,20 @@ function MainScreen(props) {
 
   const [modalState, setModal] = useState(false);
 
+  const saveSession = async () => {
+    let id = uuidv4();
+    console.log(state);
+    for(let i =0;i<state.length;i++){
+      console.log(state[i]);
+      await firestore().collection('reps').add({
+        id: id,
+        date: new Date(),
+        exerciseName: state[i].name,
+        reps: state[i].reps
+      });
+    }
+  }
+  
   const showModal = () => {
     setModal(true);
   }
@@ -76,15 +90,6 @@ const onChangeText = (text, idx, parentId) => {
         })
     });
 };
-
-const saveSession = () => {
-  firestore().collection('reps').add({
-    Date: new Date(),
-    state
-  }).then(() => {
-    console.log('Added session to db successfully');
-  });
-}
 
   return (
     <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
