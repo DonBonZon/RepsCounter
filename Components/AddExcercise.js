@@ -16,19 +16,18 @@ function AddExcercise(props) {
     return (
         <TouchableHighlight underlayColor={''} onPress={props.showModal}>
             <View style={styles.wrap}>
-
                 <Modal visible={props.modalState}>
                     <View style={styles.modalWrapper}>
-                        <Text style={styles.modalText}>Dodaj ćwiczenie</Text>
-                        <TextInput onChangeText={(value) => {name=value} } placeholder="Nazwa ćwiczenia" style={styles.textInput}></TextInput>
+                        <Text style={styles.modalText}>Add exercise</Text>
+                        <TextInput onChangeText={(value) => {name=value} } placeholder="Exercise name" style={styles.textInput}></TextInput>
                         <View style={styles.modalButtonsHolder}>
-                            <TouchableOpacity onPress={props.hideModal} style={styles.modalButtonCancel} ><Text style={styles.modalButtonText}>Anuluj</Text></TouchableOpacity>
-                            <TouchableOpacity onPress={()=>props.addExcercise(name)} style={styles.modalButtonAdd}><Text style={styles.modalButtonText}>Dodaj</Text></TouchableOpacity>
+                            <TouchableOpacity onPress={props.hideModal} style={styles.modalButtonCancel} ><Text style={styles.modalButtonText}>Cancel</Text></TouchableOpacity>
+                            <TouchableOpacity onPress={()=>props.addExcercise(name)} style={styles.modalButtonAdd}><Text style={styles.modalButtonText}>Add </Text></TouchableOpacity>
                         </View>
                     </View>
                 </Modal>
-                <Text style={styles.text}>Dodaj ćwiczenie</Text>
-                <Icon.Button onPress={props.showModal} underlayColor={''} name="plus-square" size={55} color="#753cda" backgroundColor="#ffffff" />
+                <Text style={styles.text}>Add exercise</Text>
+                <Icon.Button onPress={props.showModal} underlayColor={''} name="plus-square" size={40} color="#753cda" backgroundColor="#ffffff" />
             </View>
         </TouchableHighlight>
     );
@@ -44,18 +43,20 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     text: {
+        fontFamily:'Bangers-Regular',
         color: "#753cda",
-        fontSize: 30,
-        marginRight: 15,
-        fontWeight: "bold",
+        fontSize: 35,
+        marginRight: 5,
+        marginBottom:10,
         textAlign: 'center'
     },
     textInput: {
+        fontFamily:'Bangers-Regular',
         width: 300,
         borderColor: 'gray',
         borderWidth: 2,
         borderRadius: 10,
-        fontSize: 16,
+        fontSize: 20,
         textAlign: 'center',
     },
     modalWrapper:{
@@ -69,25 +70,31 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     modalButtonText: {
-        fontSize: 20
+        fontFamily:'Bangers-Regular',
+        fontSize: 25,
+        alignSelf: 'center',
+        marginTop: -10,
+        color:'white'
     },
     modalButtonCancel: {
         padding: 5,
-        borderColor: 'red',
-        borderWidth: 3, 
+        width: 110,
+        height:40,     
         borderRadius: 8,
-        margin: 20
+        margin: 20,
+        backgroundColor:'red'
     },
     modalButtonAdd: {
         padding: 5,
-        borderColor: 'green',
-        borderWidth: 3, 
+        width: 110,
+        height:40,
         borderRadius: 8,
-        margin: 20
+        margin: 20,
+        backgroundColor:'green'
     },
     modalText:{
-        fontSize: 30,
-        fontWeight: "bold",
+        fontFamily:'Bangers-Regular',
+        fontSize: 35,
         textAlign: 'center',
         margin: 20,
     },

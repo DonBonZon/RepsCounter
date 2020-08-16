@@ -22,10 +22,10 @@ function SingleExercise(props) {
 }
 const styles = StyleSheet.create({
     exerciseName: {
-        fontSize: 25,
-        padding: 10,
+        fontFamily:'Bangers-Regular',
+        fontSize: 35,
+        padding: 3,
         textAlign: 'center',
-        fontWeight: 'bold'
     }
 });
 export default SingleExercise;

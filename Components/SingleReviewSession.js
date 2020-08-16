@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     View,
     StyleSheet,
@@ -6,8 +6,6 @@ import {
     Text
 } from 'react-native';
 import SingleReviewExercise from './SingleReviewExercise';
-
-
 
 function SingleReviewSession(props) {
     return (
@@ -24,14 +22,14 @@ function SingleReviewSession(props) {
 };
 const styles = StyleSheet.create({
     dateText: {
-        fontSize: 20,
+        fontSize: 25,
         padding: 5,
-        color: "#753cda",
-        fontWeight: "bold",
+        color: "#280763",
+        fontFamily:'Bangers-Regular',
     },
     horizontalLine: {
-        borderBottomColor: '#753cda',
-        borderBottomWidth: 2,
+        borderBottomColor: '#280763',
+        borderBottomWidth: 3,
     }
 });
 

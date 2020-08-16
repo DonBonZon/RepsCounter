@@ -1,5 +1,8 @@
 Do zrobenia:
-- malo eleganckie chyba jest to ze z czasem keyboard sie chowa
--pozmieniac czcionki
--zrobic aby walidowaly sie pola text inputow ( nie bylo kropek itp)
--zrobic aby zatwierdzac text input enterem
+-pozmieniac czcionki //zrobione
+-zrobic aby walidowaly sie pola text inputow ( nie bylo kropek itp) //w sumie nwm czy jest sens
+-zrobic aby zatwierdzac text input enterem  //dziala i mozna klikac przycisk wraz z otwarta klawiatura
+-sortowac po dacie wyniki w review  //dziala
+-Zdecydowac sie na 1 jezyk a nie ang i pl jednoczesnie xDD //chyba juz
+- zrobic aby nie mozna bylo dodawac jak jest 0 //zrobione
+-zrobic aby do db nie dodawalo cwiczen jak maja tylko 0 repow

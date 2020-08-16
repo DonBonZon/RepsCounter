@@ -10,9 +10,9 @@ function TopHeader(props) {
   return (
     <View>
         <View style={styles.saveAreaWrapper}>
-          <TouchableOpacity onPress={props.saveSession} style={{flexDirection:'row'}}><Icon.Button name="check" size={30} color="#753cda" backgroundColor="#ffffff" /><Text style={styles.saveText}>Save session</Text></TouchableOpacity>
+          <TouchableOpacity onPress={props.saveSession} style={{flexDirection:'row'}}><Icon.Button name="check" size={30} color="#753cda" backgroundColor="#ffffff" /><Text style={styles.saveText}>Save session </Text></TouchableOpacity>
         </View>
-      <Text style={{ textAlign: 'center' }}>Tu kiedys bedzie jakis bardzo ladny baner hehe</Text>
+      <Text style={{ textAlign: 'center' }}>Someday there will be a very nice banner over here hehehe</Text>
     </View>
   );
 }
@@ -22,11 +22,12 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   saveText: {
-    fontSize: 15,
+    fontFamily:'Bangers-Regular',
+    fontSize: 18,
     color: "#753cda",
-    marginTop: 13,
+    marginTop: 6,
     marginRight: 10,
-    marginLeft: -15
+    marginLeft: -15,
   },
   test:{
   
